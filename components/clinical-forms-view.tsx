@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { FormTemplateGallery } from "@/components/clinical-forms/form-template-gallery"
 import { FormRenderer } from "@/components/clinical-forms/form-renderer"
+import { SchemaPreviewView } from "@/components/clinical-forms/schema-preview-view"
 import { clinicalFormTemplates } from "@/data/clinical-form-templates"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -24,11 +25,12 @@ export function ClinicalFormsView() {
       </p>
 
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid grid-cols-2 bg-gray-900/50 border border-gray-800">
+        <TabsList className="grid grid-cols-3 bg-gray-900/50 border border-gray-800">
           <TabsTrigger value="gallery">Template Gallery</TabsTrigger>
           <TabsTrigger value="preview" disabled={!selectedTemplateId}>
             Form Preview
           </TabsTrigger>
+          <TabsTrigger value="schema-preview">Schema & Preview</TabsTrigger>
         </TabsList>
 
         <TabsContent value="gallery" className="mt-4">
@@ -42,6 +44,10 @@ export function ClinicalFormsView() {
               readOnly={false}
             />
           )}
+        </TabsContent>
+
+        <TabsContent value="schema-preview" className="mt-4">
+          <SchemaPreviewView />
         </TabsContent>
       </Tabs>
     </div>

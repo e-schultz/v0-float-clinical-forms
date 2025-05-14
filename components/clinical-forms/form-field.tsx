@@ -69,6 +69,8 @@ export function FormField({ field, form, readOnly = false }: FormFieldProps) {
               placeholder={field.placeholder}
               disabled={readOnly}
               className="min-h-[100px] bg-gray-900 border-gray-700 text-gray-200"
+              value={form.getValues(field.id) || ""}
+              onChange={(e) => form.setValue(field.id, e.target.value)}
             />
           </FormControl>
         )
