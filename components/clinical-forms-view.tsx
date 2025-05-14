@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { FormTemplateGallery } from "@/components/clinical-forms/form-template-gallery"
 import { FormRenderer } from "@/components/clinical-forms/form-renderer"
-import { SchemaPreviewView } from "@/components/clinical-forms/schema-preview-view"
+import { SchemaPreviewViewEnhanced } from "@/components/clinical-forms/schema-preview-view-enhanced"
 import { clinicalFormTemplates } from "@/data/clinical-form-templates"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
@@ -30,7 +30,7 @@ export function ClinicalFormsView() {
           <TabsTrigger value="preview" disabled={!selectedTemplateId}>
             Form Preview
           </TabsTrigger>
-          <TabsTrigger value="schema-preview">Schema & Preview</TabsTrigger>
+          <TabsTrigger value="schema-preview">Schema Editor</TabsTrigger>
         </TabsList>
 
         <TabsContent value="gallery" className="mt-4">
@@ -47,7 +47,7 @@ export function ClinicalFormsView() {
         </TabsContent>
 
         <TabsContent value="schema-preview" className="mt-4">
-          <SchemaPreviewView />
+          <SchemaPreviewViewEnhanced />
         </TabsContent>
       </Tabs>
     </div>
